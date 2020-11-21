@@ -1,24 +1,12 @@
-﻿@using System.Collections.Generic.List<WishList.Models.Item>
-@using static WishList.Models.Item
+﻿@model List<WishList.Models.Item>
+
 <h1>Wishlist</h1>
 
-<a asp-action="create">Add Item</a>
-<ul>
-    @foreach (var item in Model.Id)
-    {
-        <li>@Model.Description</li>
-        <a asp-action="delete" asp-route-id=@Model.Id>delete</a>
-    }
-</ul>
-@using System.Collections.Generic.List<WishList.Models.Item>
-@using static WishList.Models.Item
-<h1>Wishlist</h1>
+<a asp-action="create">Add item</a>
 
-<a asp-action="create">Add Item</a>
 <ul>
-    @foreach (var item in Model.Id)
+    @foreach (var item in Model)
     {
-        <li>@Model.Description</li>
-        <a asp-action="delete" asp-route-id=@Model.Id>delete</a>
+        <li>@item.Description <a asp-action="delete" asp-route-id="@item.Id">delete</a></li>
     }
 </ul>
